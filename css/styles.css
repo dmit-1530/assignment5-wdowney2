@@ -1,0 +1,209 @@
+/* Colour Palette
+    off-black : #002438;
+    navy      : #003049;
+    orange    : #F77F00;
+    yellow    : #FCBF49;
+*/
+
+body {
+    background: linear-gradient(90deg, #46A098 0%, #54A654 100%);
+    font-family: "PT Sans", sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #fff;
+}
+
+/* Helper Classes */
+
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* *************** header & nav ****************** */
+/* Step: 1 Style the default/showing state. Starting with the mobile view, style the layout and links for how they will look when visible */
+
+header {
+    background-color: #9846A0;
+    /* Not going to change color because needs to be added to "a" */
+    padding: 1rem;
+}
+
+header a {
+    color: #FFF;
+    font-size: 1.125rem;
+    line-height: 3.5rem; /* 311.111% */
+    text-transform: uppercase;
+    text-decoration: none;
+    /* allows the clickable area to take up the full width and height of the li */
+    display: block;
+}
+
+.menu a:hover,
+.menu a:active {
+    background-color: #9846A0;
+}
+
+.toggle-btn {
+    background: #9846A0;
+    border: none;
+    outline: none;
+    order: -1;
+}
+
+.toggle-btn:hover {
+    cursor: pointer;
+}
+
+.menu li {
+    /* the extra space from the additional line height, makes this a larger area and vertically centers the text */
+    line-height: 3.5rem;
+    text-align: center;
+}
+
+.menu a {
+    border-top: .0625rem solid #CECBCB;
+}
+.menu li:last-of-type a {
+    border-bottom: .0625rem solid #CECBCB;
+}
+
+header nav {
+    /* style this for how it will look overlapped the main content */
+    /* this element does not have a parent container that is positioned relative, therefore it's positioned in relationship to the browser screen */
+    position: absolute;
+    top: 4.125rem;
+    left: 0;
+    width: 100vw;
+    background-color: #9846A0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.7s ease-in-out, padding 0.7s ease-in-out;
+    text-transform: uppercase;
+}
+
+.show-nav {
+    max-height: 100vh;
+    padding: 1.25rem 1rem 2.5rem 1rem;
+}
+
+/* ************************* section ****************** */
+
+main {
+    padding: 2rem 1rem;
+}
+
+section > * {
+    max-width: 30.5rem;
+}
+
+header img {
+    display: block;
+    height: 2.5rem;
+    aspect-ratio: auto;
+}
+
+header img:last-of-type {
+    height: 1.5rem;
+}
+
+section p {
+    font-size: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+section a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    text-transform: uppercase;
+    padding: .75rem 1.5rem;
+    background: #9846A0;
+    display: inline-block;
+}
+
+section a:hover,
+section a:focus {
+    background: #793880;
+}
+
+h1 {
+    font-weight: 400;
+    font-size: 2rem;
+    line-height: 1;
+    margin-bottom: 1.5rem;
+}
+
+span {
+    font-weight: 700;
+    user-select: none;
+    font-size: 2.5rem;
+}
+
+/* Media Query */
+@media (min-width: 774px) { /* I take it I'm expected to just pick my own breakpoints  */
+
+    .toggle-btn {
+        display: none;
+    }
+
+    header nav {
+        position: static;
+        /* Return nav to html from position absolute */
+        width: auto;
+        max-height: unset;
+        overflow: visible;
+        padding: 0;
+        min-width: 741px;
+        order: 2;
+        width: 100%;
+    }
+    
+    .menu {
+        gap: 3rem;
+    }
+
+    .menu,
+    header .inner-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    header .inner-container {
+        flex-wrap: wrap;
+        gap: .5rem 3rem;
+    }
+
+    .menu a {
+        padding: 0 .5rem;
+        border-top: none;
+    }
+    .menu li:last-of-type a {
+        border-bottom: none;
+    }
+
+    .menu a:hover,
+    .menu a:active {
+        border-radius: 0.3125rem;
+        background: #A258A9;
+    }
+}
+
+@media (min-width: 1028px) { /* I take it I'm expected to just pick my own breakpoints  */
+    header .inner-container {
+        flex-wrap: nowrap;
+    }
+    header nav {
+        order: initial;
+        width: fit-content;
+    }
+}
+
+@media(min-width: 1920px) {
+    .inner-container {
+        max-width: 1820px;
+        margin: auto;
+    }
+}
